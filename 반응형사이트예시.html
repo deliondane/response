@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형사이트예시</title>
+    <script
+      src="https://kit.fontawesome.com/a9260f0aa2.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /*root속성*/
+      :root {
+        --bg-b-color: #263343;
+        --bg-w-color: #efefef;
+        --text-w-color: #f0f4f5;
+        --text-b-color: #333;
+        --accent-color: #d49d66;
+
+        --padding: 12px;
+
+        --font-title: 36px;
+        --font-large: 24px;
+        --font-medium: 18px;
+        --font-small: 14px;
+        --font-micro: 10px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      body {
+        font-family: Arial;
+        color: var(--text-w-color);
+        line-height: 1.6;
+      }
+
+      header {
+        width: 100%;
+        background-color: var(--bg-b-color);
+        padding: var(--padding);
+        position: fixed;
+        z-index: 1;
+      }
+
+      header > .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: var(--font-medium);
+      }
+      .logo > i {
+        font-size: var(--font-large);
+        color: var(--accent-color);
+      }
+      .gnb {
+        display: flex;
+      }
+      .gnb li {
+        margin: 0 calc(var(--padding) * 2);
+        font-size: var(--font-medium);
+      }
+      .icon {
+        display: flex;
+      }
+      .icon li {
+        margin: 0 calc(var(--padding) / 2);
+        font-size: var(--font-medium);
+      }
+      .togglebtn {
+        font-size: var(--font-medium);
+        position: absolute;
+        right: 20px;
+        color: var(--accent-color);
+        cursor: pointer;
+        display: none;
+      }
+
+      #banner {
+        width: 100%;
+        height: 500px;
+        background: url(img/flex활용/bg.png) center -50px / cover;
+        position: relative;
+      }
+      #banner > .wrap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: var(--text-b-color);
+      }
+      #banner h1{
+        font-size: var(--font-title);
+      }
+      #banner p{
+        font-size: var(--font-medium);
+        font-weight: bold;
+      }
+
+      #contents{
+        width: 100%;
+        background-color: var(--bg-w-color);
+      }
+      #contents > .wrap{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 20px;
+      }
+      #contents h1{
+        font-size: var(--font-title);
+        text-align: center;
+        margin-bottom: calc(var(--padding)*2);
+        color: var(--text-b-color);
+      }
+      #contents .imgGroup{
+        display: flex;
+        width: 100%;
+      }
+      .imgGroup img{
+        width: 100%;
+      }
+      .imgGroup > li{
+        padding: calc(var(--padding)/2);
+      }
+
+      /*980px 미만 적용*/
+      @media screen and (max-width:980px) {
+        #banner{
+          background-position: center top;
+        }
+      }
+
+      /*768px 미만 적용*/
+      @media screen and (max-width:768px) {
+        header > .wrap{
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .gnb{
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          display: none;
+        }
+        .gnb > li{
+          padding: var(--padding) 0;
+        }
+        .gnb > li:hover{
+          background-color: var(--accent-color);
+        }
+        .icon{
+          width: 100%;
+          justify-content: center;
+          display: none;
+        }
+        .togglebtn{
+          display: block;
+        }
+
+        /*gnb와 icon에 active클래스가 추가되면 화면에 표시*/
+        .gnb.active,
+        .icon.active{
+          display: flex;
+        }
+
+        #contents .imgGroup{
+          flex-wrap: wrap;
+        }
+        .imgGroup > li{
+          width: 50%;
+        }
+      }
+
+      @media screen and (max-width:600px) {
+        .imgGroup > li{
+          width: 100%;
+          /*이미지 요소의 넓이를 100%설정하여 1줄로 정렬*/
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="#" class="togglebtn"><i class="fas fa-bars"></i></a>
+      <div class="wrap">
+        <div class="logo">
+          <i class="fab fa-drupal"></i>
+          <a href="#">COMPANY</a>
+        </div>
+        <ul class="gnb">
+          <li><a href="#">about</a></li>
+          <li><a href="#">news</a></li>
+          <li><a href="#">portfolio</a></li>
+          <li><a href="#">contact</a></li>
+          <li><a href="#">board</a></li>
+        </ul>
+        <ul class="icon">
+          <li>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="banner">
+      <div class="wrap">
+        <h1>TITLE</h1>
+        <p>some text...</p>
+      </div>
+    </section>
+
+    <section id="contents">
+      <div class="wrap">
+        <h1>TITLE</h1>
+        <ul class="imgGroup">
+          <li><img src="img/flex활용/eye_1.jpg" alt="eye" /></li>
+          <li><img src="img/flex활용/eye_2.jpg" alt="eye" /></li>
+          <li><img src="img/flex활용/eye_3.jpg" alt="eye" /></li>
+          <li><img src="img/flex활용/eye_4.jpg" alt="eye" /></li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      //선택자
+      const togglebtn = document.querySelector(".togglebtn");
+      const gnb = document.querySelector(".gnb");
+      const icon = document.querySelector(".icon");
+
+      //togglebtn에 클릭이벤트를 생성
+      togglebtn.addEventListener("click",()=>{
+        //gnb와 icon에 active클래스가 있으면 제거하고 없으면 추가
+        gnb.classList.toggle("active");
+        icon.classList.toggle("active");
+      })
+    </script>
+  </body>
+</html>

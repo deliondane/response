@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>반응형예시</title>
+  <style>
+    body{
+      background-color: lightgreen;
+    }
+    /*브러우저의 넓이가 600px 이하면 적용*/
+    @media only screen and (max-width:600px){
+      body{
+        background-color: lightblue;
+      }
+    }
+  </style>
 </head>
 <body>
-  
+  <p>문서의 폭이 600픽셀 이하이면 배경색을 "연한 파랑"이고 그렇지 않은 경우 "연한 녹색"입니다</p>
 </body>
 </html>
