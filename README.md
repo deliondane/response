@@ -8,4 +8,4 @@
       - 노랑
 ***
 
-[예시 사이트로 이동](https://deliondane.github.io/res_ex/)
+[예시 사이트로 이동](https://deliondane.github.io/response/)
